@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Flyer Revision QA</title><link rel="stylesheet" href="style.css"><script src="../vendor/xlsx.full.min.js"></script><script type="module" src="app.mjs"></script></head>
+<body><main>
+<div class="eyebrow">Flyer Revision QA · Page 1 only</div><h1>Check the weekly flyer against email.</h1>
+<p class="intro">Compare each market independently. Files stay in this browser; the original workbook is never changed.</p>
+<section class="panel" aria-label="Source files"><div class="inputs">
+<label>Email workbook<input id="workbook" type="file" accept=".xlsx,.xls"></label>
+<label>REPUBLICA weekly script<input id="republica" type="file" accept=".xlsx,.xls"><small>MIAMI sheet · UNIQUE CITY · EMAIL POSITION</small></label>
+<label>Miami flyer PDF<input id="miami" type="file" accept="application/pdf"></label>
+<label>Orlando flyer PDF<input id="orlando" type="file" accept="application/pdf"></label>
+<label>Week starting<input id="week" type="date" value="2026-10-28"></label>
+</div><p class="help">A missing source produces an incomplete report. No values are inferred from the other market. Only page 1 of each PDF is read or rendered.</p>
+<button id="run">Compare files</button><p id="progress" role="status" aria-live="polite"></p><p id="error" role="alert" hidden></p></section>
+<section id="tabChoice" class="panel" hidden><h2>Select the matching tabs</h2><p>More than one tab matches this week. Choose explicitly; no tab is selected automatically.</p><div id="tabOptions"></div><button id="useTabs">Continue with these tabs</button></section>
+<section id="output" hidden>
+<div id="warnings" class="notice" role="status"></div><div class="toolbar"><h2>Revision report</h2><label>Show <select id="filter"><option value="all">All results</option><option>MISMATCH</option><option>NEEDS REVIEW</option><option>NOT ON PAGE 1</option><option>MATCH</option></select></label><button id="copy">Copy report</button><button id="download" class="secondary">Download report</button></div>
+<p id="counts"></p><p class="help">MATCH applies to parsed fields. Page crops are original PDF pixels. NOT ON PAGE 1 means no confident text match; visually verify absence, then consult REPUBLICA. Notes are included in the report.</p>
+<div id="pages"></div><div id="results"></div>
+<details><summary>Copyable plain-text report</summary><textarea id="report" readonly rows="14" aria-label="Revision report text"></textarea></details>
+</section>
+</main></body></html>

@@ -1,0 +1,5 @@
+function open(){return new Promise((resolve,reject)=>{const r=indexedDB.open('sedanos-private-lookup-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('catalog');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+export async function readCatalog(){const db=await open();return new Promise((resolve,reject)=>{const tx=db.transaction('catalog','readonly'),r=tx.objectStore('catalog').get('rows');r.onsuccess=()=>resolve(r.result||[]);r.onerror=()=>reject(r.error);tx.oncomplete=()=>db.close();});}
+export async function mutateCatalog(fn){const db=await open();return new Promise((resolve,reject)=>{const tx=db.transaction('catalog','readwrite'),store=tx.objectStore('catalog'),r=store.get('rows');let result;
+ r.onsuccess=()=>{try{result=fn(r.result||[]);store.put(result,'rows');}catch(e){tx.abort();reject(e);}};
+ tx.oncomplete=()=>{db.close();window.parent.postMessage({type:'sedanos-catalog-changed'},location.origin);resolve(result);};tx.onerror=()=>{db.close();reject(tx.error);};});}

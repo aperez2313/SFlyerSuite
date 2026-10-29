@@ -1,0 +1,30 @@
+[
+  {
+    "package": "xlsx",
+    "version": "0.18.5",
+    "integrity": "sha512-dmg3LCjBPHZnQp5/F/+nnTa+miPJxUXB6vtk42YjBBKayDNagxGEeIdWApkYPOf3Z3pm3k62Knjzp7lMeTEtFQ==",
+    "files": {
+      "xlsx.full.min.js": "c9506197caf809a075b6dee1da0d36fb19da7158ffe8a88e7b0c96c5d8623c99",
+      "xlsx-LICENSE": "4d2a38ac35cda06a555c84074a819d413339cd3691b822cae50f8f322fe01f64"
+    }
+  },
+  {
+    "package": "pdfjs-dist",
+    "version": "3.11.174",
+    "integrity": "sha512-TdTZPf1trZ8/UFu5Cx/GXB7GZM30LT+wWUNfsi6Bq8ePLnb+woNKtDymI2mxZYBpMbonNFqKmiz684DIfnd8dA==",
+    "files": {
+      "pdf-legacy.min.js": "5b5799e6f8c680663207ac5b42ee14eed2a406fa7af48f50c154f0c0b1566946",
+      "pdf-legacy.worker.min.js": "feabdf309770ed24bba31a5467836cdc8cf639c705af27d52b585b041bb8527b"
+    }
+  },
+  {
+    "package": "pdfjs-dist",
+    "version": "5.4.149",
+    "integrity": "sha512-Xe8/1FMJEQPUVSti25AlDpwpUm2QAVmNOpFP0SIahaPIOKBKICaefbzogLdwey3XGGoaP4Lb9wqiw2e9Jqp0LA==",
+    "files": {
+      "pdf.mjs": "588869338954ac10ea65ee2347697f1199628178ea7c8ffd9ce0e1344323c47f",
+      "pdf.worker.mjs": "26c0b99111410388f0698d542b132a3f96b49c47e54b378c822cb10e0cd7f41a",
+      "pdfjs-LICENSE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    }
+  }
+]
